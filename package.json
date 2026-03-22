@@ -1,0 +1,15 @@
+{
+    "name": "apanalytics",
+    "version": "1.0.0",
+    "private": true,
+    "workspaces": [
+        "apps/*"
+    ],
+    "scripts": {
+        "dev:web": "npm run dev --workspace=apps/web",
+        "dev:api": "echo 'API runs on PHP server'",
+        "build:web": "npm run build --workspace=apps/web",
+        "install:all": "npm install && cd apps/web && npm install"
+    },
+    "devDependencies": {}
+}

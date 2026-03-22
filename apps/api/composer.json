@@ -1,0 +1,19 @@
+{
+    "name": "precious-adedokun/analytics",
+    "description": "Advanced analytics system with UTM tracking and file-based database",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Analytics\\": "src/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
+    }
+}

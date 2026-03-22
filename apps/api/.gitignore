@@ -1,0 +1,29 @@
+# Analytics Backend - Git Ignore
+
+# Data files - DO NOT commit these
+data/*.json
+!data/.gitkeep
+
+# Cache files
+*.cache
+cache/
+temp/
+tmp/
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local

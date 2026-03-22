@@ -1,0 +1,15 @@
+<?php
+/**
+ * Data Directory
+ * This directory stores all analytics data in JSON format
+ * 
+ * Files:
+ * - pageviews.json: All page view records
+ * - utm.json: UTM parameter tracking data
+ * - referrers.json: Referrer/origin tracking
+ * - devices.json: Device type statistics
+ * - locations.json: Geographic location data
+ * - events.json: Custom event tracking
+ * 
+ * DO NOT DELETE THIS FILE
+ */
