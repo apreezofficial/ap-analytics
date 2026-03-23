@@ -1,43 +1,41 @@
-# Dependencies
-node_modules
-.pnp
+# dependencies
+/node_modules
+/.pnp
 .pnp.js
-dist
 
-# Next.js
-.next
-out
+# testing
+/coverage
 
-# Build outputs
-build
+# next.js
+/.next/
+/out/
 
-# Misc
+# production
+/build
+
+# misc
 .DS_Store
 *.pem
 
-# Env files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Vercel
-.vercel
-
-# TypeScript
-*.tsbuildinfo
-next-env.d.ts
-
-# PHP Data
-apps/api/data/users.json
-apps/api/data/*.json
-
-# Logs
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# Turbopack
-.next/cache
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# API Database & Temp Scripts
+apps/api/data/*.json
+!apps/api/data/.gitkeep
+apps/api/seed.php
+apps/api/seed_utms.php
