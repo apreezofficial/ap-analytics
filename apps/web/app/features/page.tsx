@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Navbar } from '@/components/landing/Navbar'
 import { Footer } from '@/components/landing/Footer'
+import { TypingTitle } from '@/components/landing/TypingTitle'
 
 /* ─── tiny helpers ─────────────────────────────────────────── */
 function SectionTag({ children }: { children: string }) {
@@ -26,6 +27,21 @@ function CheckItem({ children }: { children: string }) {
       {children}
     </li>
   )
+}
+
+function FeatIcon({ type }: { type: string }) {
+  const icons: Record<string, React.ReactNode> = {
+    live: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>,
+    geo: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
+    traffic: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,
+    funnel: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>,
+    events: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>,
+    reports: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M4 19.5h16"/><path d="M8 7h8"/><path d="M8 11h8"/><path d="M8 15h5"/></svg>,
+    device: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="16" height="10" x="4" y="4" rx="2"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="8" y1="18" x2="16" y2="18"/></svg>,
+    privacy: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>,
+    export: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>,
+  }
+  return icons[type] || icons.live
 }
 
 /* ─── feature data ─────────────────────────────────────────── */
@@ -95,6 +111,32 @@ const features = [
     alt: 'APAnalytics custom events page showing event volume and distribution',
     flip: false,
   },
+  {
+    tag: 'Campaign tracking',
+    title: 'Track every marketing campaign',
+    desc: 'Attribute visitors to specific marketing channels using UTM parameters. See which campaigns drive the most traffic and conversions.',
+    bullets: [
+      'UTM source, medium, and campaign detection',
+      'Conversion attribution to specific campaigns',
+      'Campaign performance dashboard',
+    ],
+    image: '/features/campaign-tracking.png',
+    alt: 'APAnalytics campaign tracking showing attributed visitors and attribution matrix',
+    flip: true,
+  },
+  {
+    tag: 'Settings & Security',
+    title: 'Fine-tuned tracking control',
+    desc: 'Control where your data comes from and how it is processed. Configure whitelists, manage API keys, and set up project-specific tracking rules.',
+    bullets: [
+      'Domain whitelisting for security',
+      'REST API access for data integration',
+      'DANGER zone for project management',
+    ],
+    image: '/features/project-settings.png',
+    alt: 'APAnalytics project settings showing tracking endpoint and whitelisting',
+    flip: false,
+  },
 ]
 
 /* ─── page ─────────────────────────────────────────────────── */
@@ -136,22 +178,19 @@ export default function FeaturesPage() {
             </span>
           </div>
 
-          <h1
-            className="font-sora font-bold leading-[1.1] tracking-tight mt-6 mb-5 relative z-10 opacity-0 [animation:fadeup_0.9s_cubic-bezier(.22,1,.36,1)_0.3s_forwards]"
-            style={{ fontSize: 'clamp(2.2rem,5vw,3.8rem)' }}
+          <TypingTitle 
+            className="font-sora font-bold leading-[1.1] tracking-tight mt-6 mb-5 relative z-10 min-h-[120px]"
+            delay={300}
           >
-            Powerful features built for<br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7ab4ff] to-[#a78bfa]">
-              {' '}privacy-first analytics
-            </span>
-          </h1>
+            Powerful features built for privacy-first analytics
+          </TypingTitle>
 
-          <p className="text-[#8892a4] leading-relaxed max-w-md font-light text-[0.95rem] relative z-10 opacity-0 [animation:fadeup_0.9s_cubic-bezier(.22,1,.36,1)_0.55s_forwards]">
+          <p className="text-[#8892a4] leading-relaxed max-w-md font-light text-[0.95rem] relative z-10 opacity-0 [animation:fadeup_0.9s_cubic-bezier(.22,1,.36,1)_2.6s_forwards]">
             APAnalytics gives you clean, real-time insights without cookies, without complexity,
             and without compromising your users&apos; privacy.
           </p>
 
-          <div className="flex flex-wrap gap-3 mt-8 justify-center relative z-10 opacity-0 [animation:fadeup_0.9s_cubic-bezier(.22,1,.36,1)_0.75s_forwards]">
+          <div className="flex flex-wrap gap-3 mt-8 justify-center relative z-10 opacity-0 [animation:fadeup_0.9s_cubic-bezier(.22,1,.36,1)_2.9s_forwards]">
             <Link
               href="/register"
               className="font-sora text-sm font-semibold px-7 py-3 rounded-xl bg-white text-[#07090f] hover:bg-[#dce5f5] transition-all hover:-translate-y-0.5 shadow-xl shadow-white/10"
@@ -179,9 +218,9 @@ export default function FeaturesPage() {
                 {/* text side */}
                 <div className="flex-1 min-w-0">
                   <SectionTag>{feat.tag}</SectionTag>
-                  <h2 className="font-sora font-bold text-white text-2xl md:text-3xl leading-tight tracking-tight mb-4">
+                  <TypingTitle className="font-sora font-bold text-white text-2xl md:text-3xl leading-tight tracking-tight mb-4 min-h-[40px]">
                     {feat.title}
-                  </h2>
+                  </TypingTitle>
                   <p className="text-[#8892a4] text-sm leading-relaxed mb-6">
                     {feat.desc}
                   </p>
@@ -229,9 +268,9 @@ export default function FeaturesPage() {
           <div className="max-w-5xl mx-auto">
             <div className="reveal text-center mb-12">
               <SectionTag>Everything Included</SectionTag>
-              <h2 className="font-sora font-bold text-white text-3xl md:text-4xl tracking-tight">
+              <TypingTitle className="font-sora font-bold text-white text-3xl md:text-4xl tracking-tight min-h-[50px]">
                 No hidden fees. No bloat.
-              </h2>
+              </TypingTitle>
               <p className="text-[#8892a4] text-sm mt-3 max-w-md mx-auto">
                 Every plan includes every feature. We don&apos;t gate the good stuff behind expensive tiers.
               </p>
@@ -239,22 +278,24 @@ export default function FeaturesPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {[
-                { icon: '🔴', label: 'Live Visitors', desc: "See who's on your site right now, second by second" },
-                { icon: '🌍', label: 'Geo Analytics', desc: 'Country, region, and city-level visitor breakdown' },
-                { icon: '📊', label: 'Traffic Sources', desc: 'Direct, search, and referrer traffic attribution' },
-                { icon: '🎯', label: 'Funnel Builder', desc: 'Multi-step conversion funnels with drop-off rates' },
-                { icon: '⚡', label: 'Custom Events', desc: 'Auto-capture + custom JS events via one API call' },
-                { icon: '📋', label: 'Scheduled Reports', desc: 'Email reports delivered automatically on your schedule' },
-                { icon: '🖥️', label: 'Device Analytics', desc: 'Desktop, mobile, and tablet visit breakdown' },
-                { icon: '🔒', label: 'Privacy-First', desc: 'No cookies, no consent banners, GDPR compliant' },
-                { icon: '📤', label: 'CSV Export', desc: 'Full data export including custom events and referrers' },
+                { icon: 'live', label: 'Live Visitors', desc: "See who's on your site right now, second by second" },
+                { icon: 'geo', label: 'Geo Analytics', desc: 'Country, region, and city-level visitor breakdown' },
+                { icon: 'traffic', label: 'Traffic Sources', desc: 'Direct, search, and referrer traffic attribution' },
+                { icon: 'funnel', label: 'Funnel Builder', desc: 'Multi-step conversion funnels with drop-off rates' },
+                { icon: 'events', label: 'Custom Events', desc: 'Auto-capture + custom JS events via one API call' },
+                { icon: 'reports', label: 'Scheduled Reports', desc: 'Email reports delivered automatically on your schedule' },
+                { icon: 'device', label: 'Device Analytics', desc: 'Desktop, mobile, and tablet visit breakdown' },
+                { icon: 'privacy', label: 'Privacy-First', desc: 'No cookies, no consent banners, GDPR compliant' },
+                { icon: 'export', label: 'CSV Export', desc: 'Full data export including custom events and referrers' },
               ].map((item, i) => (
                 <div
                   key={item.label}
                   className="reveal group p-6 rounded-2xl bg-[rgba(12,16,32,0.75)] border border-white/[0.06] hover:border-[rgba(100,140,255,0.25)] hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(26,79,214,0.15)] transition-all duration-300"
                   style={{ transitionDelay: `${i * 0.04}s` }}
                 >
-                  <div className="text-2xl mb-3">{item.icon}</div>
+                  <div className="w-10 h-10 rounded-xl bg-[rgba(53,120,247,0.1)] border border-[rgba(53,120,247,0.2)] flex items-center justify-center text-[#7ab4ff] mb-4 group-hover:scale-110 group-hover:bg-[rgba(53,120,247,0.2)] transition-all">
+                    <FeatIcon type={item.icon} />
+                  </div>
                   <h3 className="font-sora font-semibold text-white text-sm mb-1.5">{item.label}</h3>
                   <p className="text-[#8892a4] text-xs leading-relaxed">{item.desc}</p>
                 </div>
@@ -270,9 +311,9 @@ export default function FeaturesPage() {
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(53,120,247,0.18)_0%,transparent_70%)] blur-[60px]" />
 
             <SectionTag>Get Started Today</SectionTag>
-            <h2 className="font-sora font-bold text-white text-3xl md:text-4xl tracking-tight mb-4 relative z-10">
+            <TypingTitle className="font-sora font-bold text-white text-3xl md:text-4xl tracking-tight mb-4 relative z-10 min-h-[50px]">
               Ready to understand your visitors?
-            </h2>
+            </TypingTitle>
             <p className="text-[#8892a4] text-sm leading-relaxed mb-8 relative z-10">
               Add one lightweight script. Start seeing real-time insights in under 2 minutes.
               No credit card required.
