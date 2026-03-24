@@ -69,8 +69,8 @@ export default function EventsPage() {
   const maxVolume = events.length > 0 ? Math.max(...events.map((e: any) => e.count)) : 1;
 
   return (
-    <div className="flex flex-col gap-6 animate-fade-in pb-12">
-      <div className="flex items-center justify-between">
+    <div className="flex flex-col gap-6 lg:gap-8 animate-fade-in pb-12 pt-2 w-full">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h1 className="font-sora font-bold text-2xl text-white">Custom Events</h1>
           <p className="text-[#8892a4] text-sm mt-1">{siteName} · Tracks interactions, conversions, and dynamic triggers.</p>

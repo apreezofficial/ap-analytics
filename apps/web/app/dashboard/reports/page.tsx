@@ -52,7 +52,7 @@ export default function ReportsPage() {
   }
 
   return (
-    <div className="flex flex-col gap-6 animate-fade-in pb-12 relative">
+    <div className="flex flex-col gap-6 lg:gap-8 animate-fade-in pb-12 pt-2 w-full relative">
       {/* Dynamic Toast Notification */}
       {toast && (
          <div className="fixed bottom-6 right-6 bg-blue-ap text-white font-medium px-4 py-3 rounded-lg shadow-[0_0_20px_rgba(53,120,247,0.4)] animate-slide-up z-50 flex items-center gap-3">
@@ -61,7 +61,7 @@ export default function ReportsPage() {
          </div>
       )}
 
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h1 className="font-sora font-bold text-2xl text-white">Custom Reports</h1>
           <p className="text-[#8892a4] text-sm mt-1">{siteName} · Scheduled and Saved Reports.</p>

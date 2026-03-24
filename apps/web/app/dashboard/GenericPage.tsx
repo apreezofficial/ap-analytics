@@ -16,7 +16,7 @@ export default function GenericDashboardPage({ title }: { title: string }) {
   }, [])
 
   return (
-    <div className="flex flex-col gap-4 animate-fade-in pb-12">
+    <div className="flex flex-col gap-4 animate-fade-in pb-12 pt-2 w-full">
       <div className="flex items-center justify-between mb-1">
         <div>
           <h1 className="font-sora font-bold text-2xl text-white">{title}</h1>

@@ -37,7 +37,8 @@ export function AuthPage({ initialMode = 'signup' }: Readonly<AuthPageProps>) {
         setMode('signin')
         setError('Account created! Please sign in.')
       } else {
-        router.push('/')
+        localStorage.setItem('user', JSON.stringify(data.user))
+        router.push('/dashboard')
       }
     } catch (err) {
       console.error('Auth error:', err)

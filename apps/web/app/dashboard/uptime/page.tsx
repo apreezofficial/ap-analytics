@@ -77,7 +77,7 @@ export default function UptimePage() {
   const blocks = data.history || [];
 
   return (
-    <div className="flex flex-col gap-8 animate-fade-in pb-12">
+    <div className="flex flex-col gap-6 lg:gap-8 animate-fade-in pb-12 pt-16 lg:pt-0 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <h1 className="font-sora font-bold text-2xl text-white">Uptime Monitoring</h1>

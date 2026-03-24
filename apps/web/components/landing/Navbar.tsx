@@ -1,4 +1,8 @@
-import Link from 'next/link'
+'use client'
+
+import { useEffect, useState } from 'react'
+import Link from 'next/image'
+import NextLink from 'next/link'
 
 function LogoIcon({ size = 20 }: { size?: number }) {
   return (
@@ -13,39 +17,60 @@ function LogoIcon({ size = 20 }: { size?: number }) {
 }
 
 export function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <nav className="relative z-30 flex items-center justify-between px-6 md:px-14 py-5 animate-slidedown">
-      <Link href="/" className="flex items-center gap-2 font-sora font-semibold text-white text-sm tracking-tight select-none">
-        <LogoIcon size={20} />
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-6 md:px-14 py-4 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-[rgba(7,9,15,0.7)] backdrop-blur-xl border-b border-white/5 py-3' 
+          : 'bg-transparent py-5'
+      } animate-slidedown`}
+    >
+      <NextLink href="/" className="flex items-center gap-2 font-sora font-semibold text-white text-sm tracking-tight select-none group">
+        <div className="w-8 h-8 rounded-lg bg-[rgba(53,120,247,0.15)] border border-[rgba(53,120,247,0.3)] flex items-center justify-center group-hover:bg-[rgba(53,120,247,0.25)] transition-colors">
+          <LogoIcon size={18} />
+        </div>
         APAnalytics
-      </Link>
+      </NextLink>
 
       <ul className="hidden md:flex gap-8 list-none">
         {[
-          ['Features', '#benefits'],
-          ['Pricing', '#pricing'],
-          ['About Us', '#'],
-          ['Blogs', '#'],
+          ['Features', '/features'],
+          ['Pricing', '/#pricing'],
+          ['Testimonials', '/testimonials'],
+          ['Demo', '/demo'],
           ['Docs ↗', '#'],
         ].map(([label, href]) => (
           <li key={label}>
-            <Link href={href} className="text-sm text-[#b0b8cc] hover:text-white transition-colors">
+            <NextLink 
+              href={href} 
+              className="text-[13px] font-medium text-[#b0b8cc] hover:text-white transition-colors tracking-tight"
+            >
               {label}
-            </Link>
+            </NextLink>
           </li>
         ))}
       </ul>
 
-      <div className="flex items-center gap-4">
-        <Link href="/login" className="hidden sm:block text-sm text-[#b0b8cc] hover:text-white transition-colors">
+      <div className="flex items-center gap-6">
+        <NextLink href="/login" className="hidden sm:block text-[13px] font-medium text-[#b0b8cc] hover:text-white transition-colors tracking-tight">
           Sign In
-        </Link>
-        <Link
+        </NextLink>
+        <NextLink
           href="/register"
-          className="font-sora text-xs font-semibold px-5 py-2.5 rounded-xl bg-white text-[#07090f] hover:bg-[#dce5f5] transition-all hover:-translate-y-0.5"
+          className="font-sora text-[11px] font-bold px-6 py-2.5 rounded-xl bg-white text-[#07090f] hover:bg-[#dce5f5] transition-all hover:-translate-y-0.5 shadow-lg shadow-white/5"
         >
           Start for free
-        </Link>
+        </NextLink>
       </div>
     </nav>
   )

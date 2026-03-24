@@ -33,13 +33,13 @@ export default function VisitorsPage() {
   if (loading) return <div className="p-20 text-center text-[#8892a4]">Analyzing visitor logs...</div>
 
   return (
-    <div className="flex flex-col gap-6 animate-fade-in">
+    <div className="flex flex-col gap-6 animate-fade-in pb-12 pt-2 w-full">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="font-sora font-bold text-2xl text-white">Visitors Explorar</h1>
           <p className="text-[#8892a4] text-sm mt-1">Detailed log of recent activity on your project.</p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
            <button className="btn-sm btn-ghost">Export CSV</button>
            <button className="btn-sm btn-primary">Refresh Logs</button>
         </div>

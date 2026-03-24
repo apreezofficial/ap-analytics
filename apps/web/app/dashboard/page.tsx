@@ -86,8 +86,8 @@ export default function OverviewPage() {
   }
 
   return (
-    <div className="flex flex-col gap-4 animate-fade-in pb-10">
-      <div className="flex items-center justify-between">
+    <div className="flex flex-col gap-4 animate-fade-in pb-10 w-full">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h1 className="font-sora font-bold text-xl text-white">Overview</h1>
           <p className="text-[0.72rem] text-[#8892a4] mt-0.5">{selectedSite?.name} · {range==='24h'?'Last 24 Hours':range==='7d'?'Last 7 Days':'Last 30 Days'}</p>

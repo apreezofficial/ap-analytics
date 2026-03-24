@@ -94,7 +94,7 @@ export default function SettingsPage() {
   if (!site) return null
 
   return (
-    <div className="flex flex-col gap-8 animate-fade-in pb-12 max-w-5xl relative">
+    <div className="flex flex-col gap-6 lg:gap-8 animate-fade-in pb-12 pt-2 w-full max-w-5xl relative">
       {toast && (
          <div className="fixed bottom-6 right-6 bg-blue-ap text-white font-medium px-4 py-3 rounded-lg shadow-[0_0_20px_rgba(53,120,247,0.4)] animate-slide-up z-50 flex items-center gap-3">
              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>

@@ -6,6 +6,7 @@
         "apps/*"
     ],
     "scripts": {
+        "dev": "npm run dev:web",
         "dev:web": "npm run dev --workspace=apps/web",
         "dev:api": "echo 'API runs on PHP server'",
         "build:web": "npm run build --workspace=apps/web",
