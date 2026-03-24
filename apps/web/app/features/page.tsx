@@ -239,7 +239,7 @@ export default function FeaturesPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {[
-                { icon: '🔴', label: 'Live Visitors', desc: 'See who's on your site right now, second by second' },
+                { icon: '🔴', label: 'Live Visitors', desc: "See who's on your site right now, second by second" },
                 { icon: '🌍', label: 'Geo Analytics', desc: 'Country, region, and city-level visitor breakdown' },
                 { icon: '📊', label: 'Traffic Sources', desc: 'Direct, search, and referrer traffic attribution' },
                 { icon: '🎯', label: 'Funnel Builder', desc: 'Multi-step conversion funnels with drop-off rates' },
