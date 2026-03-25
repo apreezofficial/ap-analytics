@@ -11,6 +11,8 @@
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "chart.js": "^4.5.1",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.6.0",
     "next": "latest",
     "react": "latest",
     "react-chartjs-2": "^5.3.1",
