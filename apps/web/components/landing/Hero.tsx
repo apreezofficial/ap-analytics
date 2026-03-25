@@ -77,8 +77,8 @@ export function Hero() {
       <div className="mb-6 opacity-0 [animation:fadeup_0.7s_cubic-bezier(.22,1,.36,1)_0.2s_forwards]">
         <Badge>Privacy‑first · No cookies · GDPR ready</Badge>
       </div>
-
-      <h1 className="font-sora font-bold leading-[1.1] tracking-tight relative z-10 mb-5" style={{ fontSize: 'clamp(2.4rem,5.5vw,4rem)' }}>
+<br></br><br></br>
+      <h1 className="font-sora font-bold leading-[0.7] tracking-tight relative z-10 mb-5" style={{ fontSize: 'clamp(2.0rem,4.8vw,3.5rem)' }}>
         <span ref={tl1Ref} className="block whitespace-nowrap" />
         <span ref={tl2Ref} className="block whitespace-nowrap" />
       </h1>
