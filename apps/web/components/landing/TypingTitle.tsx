@@ -1,17 +1,19 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, type CSSProperties } from 'react'
 
 export function TypingTitle({ 
   children, 
   className, 
   delay = 0,
-  speed = 40
+  speed = 40,
+  style
 }: { 
   children: string; 
   className?: string; 
   delay?: number;
   speed?: number;
+  style?: CSSProperties;
 }) {
   const ref = useRef<HTMLHeadingElement>(null)
   const hasTyped = useRef(false)
@@ -54,5 +56,5 @@ export function TypingTitle({
     return () => io.disconnect()
   }, [children, delay, speed])
 
-  return <h2 ref={ref} className={className}>{children}</h2>
+  return <h2 ref={ref} className={className} style={style}>{children}</h2>
 }

@@ -34,7 +34,7 @@ export function Navbar() {
             if (parsedUser.id) {
                 const checkSession = async () => {
                     try {
-                        const { apiGet } = await import('@/lib/api');
+                        const { apiGet } = await import('../../lib/api');
                         await apiGet(`/user?id=${parsedUser.id}`);
                     } catch (e: any) {
                         // Only logout if the server explicitly says 404/401
@@ -77,8 +77,8 @@ export function Navbar() {
         { name: 'Features', href: '/features' },
         { name: 'Pricing', href: '/#pricing' },
         { name: 'Testimonials', href: '/testimonials' },
-        { name: 'Dashboard', href: '/dashboard' },
-        { name: 'Docs', href: '#' },
+        { name: 'Demo', href: '/demo' },
+        { name: 'Docs ↗', href: '#' },
     ];
 
     return (
@@ -166,8 +166,8 @@ export function Navbar() {
                                     Login
                                 </Link>
                             )}
-                            <Link href="/support" className="bg-white/5 border border-white/10 text-white/60 hover:text-white text-[0.8rem] font-bold py-2.5 px-6 rounded-full transition-all">
-                                Support
+                            <Link href="/register" className="bg-white/5 border border-white/10 text-white/60 hover:text-white text-[0.8rem] font-bold py-2.5 px-6 rounded-full transition-all">
+                                Start for free
                             </Link>
                         </div>
 
