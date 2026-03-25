@@ -12,6 +12,7 @@
   --color-navy-500: #1a2040;
   --color-navy-400: #3a4255;
   --color-blue-ap: #3578f7;
+  --color-myRed: #ff4a4a;
 
   @keyframes orbpulse {
     from, to { opacity: 0.8; transform: scale(1); }
