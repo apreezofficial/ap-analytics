@@ -189,13 +189,13 @@ export default function FeaturesPage() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="relative z-10 flex flex-col items-center text-center px-6 pt-48 pb-24 overflow-hidden">
+        <section className="relative z-10 flex flex-col items-center text-center px-6 pt-40 pb-24 overflow-hidden">
           {/* glow orbs */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="absolute w-[600px] h-[600px] rounded-full left-1/2 -translate-x-1/2 top-[-100px] bg-[radial-gradient(ellipse_at_center,rgba(53,120,247,0.35)_0%,rgba(26,79,214,0.18)_45%,transparent_72%)] blur-[100px] animate-orbpulse" />
           </div>
 
-          <div className="relative z-10 opacity-0 [animation:fadeup_0.7s_cubic-bezier(.22,1,.36,1)_0.1s_forwards] mt-12">
+          <div className="relative z-10 opacity-0 [animation:fadeup_0.7s_cubic-bezier(.22,1,.36,1)_0.1s_forwards] mt-10">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[rgba(53,120,247,0.25)] bg-[rgba(53,120,247,0.12)] text-[#7ab4ff] text-[11px] font-semibold font-sora tracking-wider">
               <span className="w-1.5 h-1.5 rounded-full bg-[#3578f7] shadow-[0_0_7px_#3578f7] shrink-0" />
               Everything you need · Nothing you don&apos;t
@@ -203,8 +203,8 @@ export default function FeaturesPage() {
           </div>
 
           <TypingTitle 
-            className="font-sora font-bold leading-[1.05] tracking-tight mt-12 mb-10 relative z-10 min-h-[160px] [text-wrap:balance]"
-            style={{ fontSize: 'clamp(3.2rem,8.5vw,5.5rem)' }}
+            className="font-sora font-bold leading-[1.1] tracking-tight mt-10 mb-8 relative z-10 min-h-[140px] [text-wrap:balance]"
+            style={{ fontSize: 'clamp(2.5rem, 6.5vw, 4rem)' }}
             delay={300}
           >
             Powerful features built for privacy-first analytics
