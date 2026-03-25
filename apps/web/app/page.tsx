@@ -6,6 +6,7 @@ import { Hero } from '@/components/landing/Hero'
 import { TrustedBy } from '@/components/landing/TrustedBy'
 import { Features } from '@/components/landing/Features'
 import { Pricing } from '@/components/landing/Pricing'
+import { ProblemSolution } from '@/components/landing/ProblemSolution'
 import { Footer } from '@/components/landing/Footer'
 
 export default function Home() {
@@ -38,6 +39,9 @@ export default function Home() {
 
         {/* ══ TRUSTED BY ══ */}
         <TrustedBy />
+
+        {/* ══ INSIGHTS & SHOWCASE ══ */}
+        <ProblemSolution />
 
         {/* ══ BENEFITS & FEATURES ══ */}
         <Features />
