@@ -1,172 +1,183 @@
+'use client'
+
+import { useEffect } from 'react'
 import Link from 'next/link'
+import { Navbar } from '@/components/landing/Navbar'
+import { Footer } from '@/components/landing/Footer'
+import { TypingTitle } from '@/components/landing/TypingTitle'
+
+const testimonials = [
+  {
+    content: "I've tried every analytics tool out there, from GA to specialized privacy trackers. APAnalytics is the only one that hits the perfect balance of depth and simplicity. The setup is truly instant.",
+    author: "Precious Adedokun",
+    role: "Founder & Full-stack Developer",
+    avatar: "PA",
+    gradient: "from-blue-500 to-indigo-600"
+  },
+  {
+    content: "The real-time dashboard is addictive. Being able to see exact entry points and drop-offs without the bloat of traditional tools has changed how we optimize our landing pages.",
+    author: "Sarah Mitchell",
+    role: "Senior Product Manager",
+    avatar: "SM",
+    gradient: "from-purple-500 to-pink-600"
+  },
+  {
+    content: "Finally, a tool that respects user privacy without sacrificing the insights I need to grow my business. The lightweight nature of the script is just the icing on the cake.",
+    author: "Alex Thompson",
+    role: "Independent SEO Consultant",
+    avatar: "AT",
+    gradient: "from-emerald-500 to-teal-600"
+  },
+  {
+    content: "I initially switched for the privacy features, but I stayed for the UX. The funnel analysis tool is more intuitive than enterprise competitors costing 10x as much.",
+    author: "Chioma Okonkwo",
+    role: "CEO, TechStack",
+    avatar: "CO",
+    gradient: "from-orange-500 to-red-600"
+  },
+  {
+    content: "APAnalytics managed to make data analytics beautiful. My team actually enjoys checking our stats now. It's transformed our data culture from 'scary' to 'insightful'.",
+    author: "Marcus Chen",
+    role: "Lead UI/UX Designer",
+    avatar: "MC",
+    gradient: "from-cyan-500 to-blue-600"
+  },
+  {
+    content: "The zero-cookie approach is a massive win for us. We removed all our cookie banners and our conversion rate jumped by 15% immediately. Truly a game-changer.",
+    author: "David Oyelaran",
+    role: "Performance Marketer",
+    avatar: "DO",
+    gradient: "from-rose-500 to-orange-600"
+  }
+]
 
 export default function TestimonialsPage() {
-  const testimonials = [
-    {
-      content: "I've been using APAnalytics for 6 months now and it's been a game changer. The privacy-first approach aligns perfectly with my values, and the data is exactly what I need - no bloat, no complications.",
-      author: "Alex Thompson",
-      role: "Freelance Developer",
-      avatar: "AT"
-    },
-    {
-      content: "As a startup founder, every dollar counts. APAnalytics lets me track my SaaS metrics without worrying about expensive subscriptions. The self-hosted option is incredibly well documented.",
-      author: "Chioma Okonkwo",
-      role: "CEO, StackFlow",
-      avatar: "CO"
-    },
-    {
-      content: "The setup was incredibly fast. I had tracking working on my blog within 5 minutes. The dashboard is clean and intuitive - exactly what I was looking for.",
-      author: "Marcus Chen",
-      role: "Technical Writer",
-      avatar: "MC"
-    },
-    {
-      content: "I've tried Google Analytics, Mixpanel, Amplitude, and countless others. APAnalytics is the first tool that gives me exactly what I need without overwhelming me with features I'll never use.",
-      author: "Sarah Mitchell",
-      role: "Product Manager",
-      avatar: "SM"
-    },
-    {
-      content: "The lightweight script is genuinely impressive. At less than 1KB, it doesn't impact page load times at all. My Core Web Vitals actually improved after switching from GA.",
-      author: "David Oyelaran",
-      role: "SEO Consultant",
-      avatar: "DO"
-    },
-    {
-      content: "Being able to self-host is a huge plus. I keep all my analytics data on my own servers, which is essential for my enterprise clients with strict data compliance requirements.",
-      author: "Emily Watson",
-      role: "DevOps Engineer",
-      avatar: "EW"
-    },
-    {
-      content: "Finally, an analytics tool that doesn't require a cookie banner! My EU visitors no longer see that annoying popup, and I still get all the insights I need.",
-      author: "James Murphy",
-      role: "Blogger",
-      avatar: "JM"
-    },
-    {
-      content: "The real-time dashboard is addictive. I find myself checking it constantly to see where my latest blog post is getting traffic from. It's helped me understand my audience better.",
-      author: "Priya Sharma",
-      role: "Content Creator",
-      avatar: "PS"
-    },
-    {
-      content: "Customer support is fantastic. I had questions about self-hosting setup and got helpful responses within hours. The team really cares about their users.",
-      author: "Robert Kimani",
-      role: "Indie Hacker",
-      avatar: "RK"
-    }
-  ]
+  /* scroll reveal */
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('shown')
+            io.unobserve(e.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el))
+    return () => io.disconnect()
+  }, [])
 
   return (
-    <>
-      {/* Navigation */}
-      <nav className="navbar">
-        <div className="container">
-          <Link href="/" className="nav-logo">APAnalytics</Link>
-          <div className="nav-links">
-            <Link href="/features">Features</Link>
-            <Link href="/testimonials" style={{ color: 'var(--primary)' }}>Testimonials</Link>
-            <Link href="/demo">Demo</Link>
-            <Link href="/login" className="btn btn-secondary">Login</Link>
-            <Link href="/register" className="btn btn-primary">Get Started</Link>
+    <div className="relative min-h-screen bg-[#07090f] text-white font-dm overflow-x-hidden star-bg antialiased">
+      <Navbar />
+
+      <main>
+        {/* ── HERO ── */}
+        <section className="relative z-10 flex flex-col items-center text-center px-6 pt-40 pb-20 overflow-hidden">
+          {/* glow orbs */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div className="absolute w-[600px] h-[600px] rounded-full left-1/2 -translate-x-1/2 top-[-100px] bg-[radial-gradient(ellipse_at_center,rgba(53,120,247,0.3)_0%,rgba(26,79,214,0.15)_45%,transparent_72%)] blur-[100px] animate-orbpulse" />
           </div>
-        </div>
-      </nav>
 
-      {/* Page Header */}
-      <section className="page-header">
-        <div className="container">
-          <h1>What People Say</h1>
-          <p>Join thousands of happy users tracking their websites with APAnalytics</p>
-        </div>
-      </section>
+          <div className="reveal opacity-0 [animation:fadeup_0.7s_cubic-bezier(.22,1,.36,1)_0.1s_forwards] mt-10">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[rgba(53,120,247,0.25)] bg-[rgba(53,120,247,0.12)] text-[#7ab4ff] text-[11px] font-semibold font-sora tracking-wider">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#3578f7] shadow-[0_0_7px_#3578f7] shrink-0" />
+              Trusted by 50,000+ developers
+            </span>
+          </div>
 
-      {/* Testimonials Grid */}
-      <section className="testimonials" style={{ paddingBottom: '0' }}>
-        <div className="container">
-          <div className="testimonials-grid">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="testimonial-card">
-                <p className="testimonial-content">"{testimonial.content}"</p>
-                <div className="testimonial-author">
-                  <div className="testimonial-avatar">{testimonial.avatar}</div>
-                  <div className="testimonial-info">
-                    <h4>{testimonial.author}</h4>
-                    <p>{testimonial.role}</p>
+          <TypingTitle 
+            className="font-sora font-bold leading-[1.1] tracking-tight mt-10 mb-8 relative z-10 min-h-[140px] [text-wrap:balance]"
+            style={{ fontSize: 'clamp(2.5rem, 6.5vw, 4rem)' }}
+            delay={300}
+          >
+            Don&apos;t just take our word for it.
+          </TypingTitle>
+
+          <p className="text-[#8892a4] leading-relaxed max-w-lg font-light text-[1.1rem] relative z-10 opacity-0 [animation:fadeup_0.9s_cubic-bezier(.22,1,.36,1)_2.8s_forwards] [text-wrap:balance]">
+            Join thousands of teams who switched to APAnalytics for a faster, cleaner, and more private web.
+          </p>
+        </section>
+
+        {/* ── GRID ── */}
+        <section className="relative z-10 px-6 md:px-14 pb-32">
+          <div className="max-w-6xl mx-auto columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+            {testimonials.map((t, idx) => (
+              <div 
+                key={t.author} 
+                className="reveal break-inside-avoid p-8 rounded-[24px] bg-[rgba(12,16,32,0.8)] border border-white/[0.06] hover:border-[rgba(100,140,255,0.3)] hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(26,79,214,0.2)] transition-all duration-500 group"
+                style={{ transitionDelay: `${idx * 0.05}s` }}
+              >
+                {/* quote icon */}
+                <div className="mb-6 text-[#3578f7]/20 group-hover:text-[#3578f7]/40 transition-colors">
+                  <svg width="32" height="24" viewBox="0 0 32 24" fill="currentColor">
+                    <path d="M0 24V14.4L4.8 0H12.8L9.6 14.4H14.4V24H0ZM17.6 24V14.4L22.4 0H30.4L27.2 14.4H32V24H17.6Z"/>
+                  </svg>
+                </div>
+
+                <p className="text-[#c8d0e0] leading-relaxed mb-8 italic">
+                  &quot;{t.content}&quot;
+                </p>
+
+                <div className="flex items-center gap-4">
+                  <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${t.gradient} flex items-center justify-center text-white font-bold text-sm shadow-xl`}>
+                    {t.avatar}
+                  </div>
+                  <div className="flex flex-col">
+                    <h4 className="font-sora font-bold text-white text-sm">{t.author}</h4>
+                    <span className="text-[#8892a4] text-xs">{t.role}</span>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Stats */}
-      <section className="stats">
-        <div className="container">
-          <div className="stats-grid">
-            <div className="stat-item">
-              <h3>50K+</h3>
-              <p>Active Users</p>
-            </div>
-            <div className="stat-item">
-              <h3>4.9/5</h3>
-              <p>User Rating</p>
-            </div>
-            <div className="stat-item">
-              <h3>99.9%</h3>
-              <p>Satisfaction Rate</p>
-            </div>
-            <div className="stat-item">
-              <h3>50M+</h3>
-              <p>Page Views Tracked</p>
+        {/* ── STATS SECTION ── */}
+        <section className="relative z-10 px-6 md:px-14 py-24 border-y border-[#12182e]">
+          <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12">
+            {[
+              { label: 'Cloud Users', val: '50K+' },
+              { label: 'Pageviews / Mo', val: '2.4B+' },
+              { label: 'Uptime', val: '99.99%' },
+              { label: 'Open Source', val: '100%' },
+            ].map((stat, i) => (
+              <div key={stat.label} className="reveal text-center" style={{ transitionDelay: `${i * 0.1}s` }}>
+                <div className="text-3xl md:text-4xl font-sora font-black text-white mb-2">{stat.val}</div>
+                <div className="text-[#8892a4] text-xs font-semibold tracking-widest uppercase">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── CTA ── */}
+        <section className="relative z-10 px-6 md:px-14 py-32 text-center">
+          <div className="max-w-2xl mx-auto reveal relative">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(53,120,247,0.22)_0%,transparent_70%)] blur-[80px]" />
+            <TypingTitle className="font-sora font-bold text-white text-4xl md:text-5xl tracking-tight mb-8 relative z-10 min-h-[60px] [text-wrap:balance]">
+              Ready to see your own data?
+            </TypingTitle>
+            <div className="flex flex-wrap gap-4 justify-center relative z-10">
+              <Link
+                href="/register"
+                className="font-sora text-sm font-semibold px-9 py-4 rounded-xl bg-white text-[#07090f] hover:bg-[#dce5f5] transition-all hover:-translate-y-0.5 shadow-2xl shadow-white/10"
+              >
+                Start for free
+              </Link>
+              <Link
+                href="/demo"
+                className="font-sora text-sm font-medium px-9 py-4 rounded-xl border border-[#3a4255] text-[#c8d0e0] hover:border-[#6a7898] hover:text-white transition-all hover:-translate-y-0.5"
+              >
+                View demo
+              </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      {/* CTA Section */}
-      <section className="cta">
-        <div className="container">
-          <h2>Join Thousands of Happy Users</h2>
-          <p>Start your free account today and see the difference</p>
-          <Link href="/register" className="btn btn-primary">Get Started Free</Link>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-grid">
-            <div className="footer-brand">
-              <h3>APAnalytics</h3>
-              <p>Simple, private, and free web analytics for everyone.</p>
-            </div>
-            <div className="footer-links">
-              <h4>Product</h4>
-              <Link href="/features">Features</Link>
-              <Link href="/demo">Demo</Link>
-              <Link href="/pricing">Pricing</Link>
-            </div>
-            <div className="footer-links">
-              <h4>Resources</h4>
-              <Link href="/docs">Documentation</Link>
-              <Link href="/api">API</Link>
-              <Link href="/status">Status</Link>
-            </div>
-            <div className="footer-links">
-              <h4>Company</h4>
-              <Link href="/about">About</Link>
-              <Link href="/contact">Contact</Link>
-              <Link href="/privacy">Privacy</Link>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <p>© 2026 APAnalytics. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-    </>
+      <Footer />
+    </div>
   )
 }
