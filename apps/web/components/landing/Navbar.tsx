@@ -176,6 +176,7 @@ export function Navbar() {
                                         </Link>
                                     </motion.div>
                                 ))}
+                            </div>
 
                             <motion.div
                                 initial={{ opacity: 0 }}
