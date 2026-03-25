@@ -71,14 +71,13 @@ export function Navbar() {
     const subTextColor = isLightMode ? 'text-black/60' : 'text-white/60';
     const navBg = isLightMode ? 'bg-white/95' : 'bg-[#07090f]/80';
     const borderColor = isLightMode ? 'border-black/5' : 'border-white/10';
-    const mobileBtnBg = 'bg-myRed text-white';
+    const mobileBtnBg = 'bg-[#3578f7] text-white';
 
     const menuItems = [
         { name: 'Features', href: '/features' },
         { name: 'Pricing', href: '/#pricing' },
         { name: 'Testimonials', href: '/testimonials' },
         { name: 'Demo', href: '/demo' },
-        { name: 'Docs ↗', href: '#' },
     ];
 
     return (
@@ -91,59 +90,26 @@ export function Navbar() {
                 >
                     {/* Logo - Updated to APAnalytics */}
                     <Link
-                        className={`flex items-center gap-2 text-[1.1rem] font-black tracking-tight ${textColor} hover:text-myRed transition-all z-[110] ${isMobileMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                        className={`flex items-center gap-2 text-[1.1rem] font-black tracking-tight ${textColor} hover:text-[#3578f7] transition-all z-[110] ${isMobileMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
                         href="/"
                     >
-                        <div className="w-8 h-8 rounded-lg bg-myRed/10 border border-myRed/20 flex items-center justify-center text-myRed">
+                        <div className="w-8 h-8 rounded-lg bg-[#3578f7]/10 border border-[#3578f7]/20 flex items-center justify-center text-[#3578f7]">
                           <LogoIcon size={18} />
                         </div>
-                        <span className="hidden sm:inline">APAnalytics</span><span className="text-myRed">.</span>
+                        <span className="hidden sm:inline">APAnalytics</span><span className="text-[#3578f7]">.</span>
                     </Link>
 
                     {/* Desktop Menu */}
-                    <div className="hidden md:flex items-center space-x-8">
+                    <div className="hidden md:flex items-center space-x-10">
                         {menuItems.map((item) => (
                             <Link
                                 key={item.name}
-                                className={`font-semibold text-[0.8rem] ${textColor} hover:text-myRed transition-colors`}
+                                className={`font-semibold text-[0.8rem] ${textColor} hover:text-[#3578f7] transition-colors`}
                                 href={item.href}
                             >
                                 {item.name}
                             </Link>
                         ))}
-
-                        {/* Legal Dropdown Desktop */}
-                        <div
-                            className="relative"
-                            onMouseEnter={() => setIsLegalOpen(true)}
-                            onMouseLeave={() => setIsLegalOpen(false)}
-                        >
-                            <button className={`flex items-center gap-1 font-semibold text-[0.8rem] ${textColor} hover:text-myRed transition-colors`}>
-                                Legal <ChevronDown size={14} className={`transition-transform duration-300 ${isLegalOpen ? 'rotate-180' : ''}`} />
-                            </button>
-                            <AnimatePresence>
-                                {isLegalOpen && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                                        className={`absolute top-full right-0 mt-3 w-56 py-3 rounded-[1.5rem] border ${borderColor} ${navBg} shadow-2xl backdrop-blur-2xl z-[120]`}
-                                    >
-                                        <div className="px-2 space-y-1">
-                                            <Link href="/privacy" className={`flex items-center justify-between px-4 py-3 text-[0.8rem] font-semibold rounded-xl hover:bg-myRed/10 hover:text-myRed transition-all ${textColor}`}>
-                                                Privacy Policy <ArrowRight size={12} className="text-myRed" />
-                                            </Link>
-                                            <Link href="/terms" className={`flex items-center justify-between px-4 py-3 text-[0.8rem] font-semibold rounded-xl hover:bg-myRed/10 hover:text-myRed transition-all ${textColor}`}>
-                                                Terms & Conditions <ArrowRight size={12} className="text-myRed" />
-                                            </Link>
-                                            <Link href="/faq" className={`flex items-center justify-between px-4 py-3 text-[0.8rem] font-semibold rounded-xl hover:bg-myRed/10 hover:text-myRed transition-all ${textColor}`}>
-                                                Help & FAQ <ArrowRight size={12} className="text-myRed" />
-                                            </Link>
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
                     </div>
 
                     <div className="flex items-center gap-4">
@@ -153,7 +119,7 @@ export function Navbar() {
                                     <span className={`text-[0.8rem] font-semibold ${subTextColor}`}>Hi, {user.name}</span>
                                     <button
                                         onClick={handleLogout}
-                                        className={`text-[0.8rem] font-bold ${textColor} hover:text-myRed transition-colors px-4 py-2 border ${borderColor} rounded-full`}
+                                        className={`text-[0.8rem] font-bold ${textColor} hover:text-[#3578f7] transition-colors px-4 py-2 border ${borderColor} rounded-full`}
                                     >
                                         Logout
                                     </button>
@@ -161,7 +127,7 @@ export function Navbar() {
                             ) : (
                                 <Link
                                     href="/login"
-                                    className={`bg-myRed text-white text-[0.8rem] font-bold py-2.5 px-6 rounded-full hover:bg-myRed/90 transition-all shadow-lg shadow-myRed/20`}
+                                    className={`bg-[#3578f7] text-white text-[0.8rem] font-bold py-2.5 px-6 rounded-full hover:bg-[#3578f7]/90 transition-all shadow-lg shadow-[#3578f7]/20`}
                                 >
                                     Login
                                 </Link>
@@ -189,7 +155,7 @@ export function Navbar() {
                         animate={{ clipPath: 'circle(150% at 92% 3rem)' }}
                         exit={{ clipPath: 'circle(0% at 92% 3rem)' }}
                         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                        className="fixed inset-0 z-[105] bg-myRed md:hidden flex flex-col items-center justify-center p-8 pointer-events-auto"
+                        className="fixed inset-0 z-[105] bg-[#3578f7] md:hidden flex flex-col items-center justify-center p-8 pointer-events-auto"
                     >
                         <div className="w-full max-w-sm flex flex-col h-full justify-between py-12">
                             {/* Mobile Links Container */}
@@ -211,37 +177,6 @@ export function Navbar() {
                                     </motion.div>
                                 ))}
 
-                                {/* Mobile Legal Dropdown Section */}
-                                <motion.div
-                                    initial={{ opacity: 0, y: 15 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.7 }}
-                                    className="pt-2"
-                                >
-                                    <button
-                                        onClick={() => setIsMobileLegalOpen(!isMobileLegalOpen)}
-                                        className="flex items-center gap-3 text-[2.2rem] font-black tracking-tight text-white/90"
-                                    >
-                                        Legal <ChevronDown size={28} className={`transition-transform duration-300 ${isMobileLegalOpen ? 'rotate-180' : ''}`} />
-                                    </button>
-
-                                    <AnimatePresence>
-                                        {isMobileLegalOpen && (
-                                            <motion.div
-                                                initial={{ height: 0, opacity: 0 }}
-                                                animate={{ height: 'auto', opacity: 1 }}
-                                                exit={{ height: 0, opacity: 0 }}
-                                                className="overflow-hidden flex flex-col pl-4 mt-2 space-y-2 border-l-2 border-white/20"
-                                            >
-                                                <Link href="/privacy" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-white/70 py-1">Privacy Policy</Link>
-                                                <Link href="/terms" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-white/70 py-1">Terms & Conditions</Link>
-                                                <Link href="/faq" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-white/70 py-1">Help & FAQ</Link>
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
-                                </motion.div>
-                            </div>
-
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
@@ -249,11 +184,6 @@ export function Navbar() {
                                 className="pt-8 border-t border-white/10"
                             >
                                 <div className="flex items-center justify-between mb-8">
-                                    <div className="flex space-x-6">
-                                        <Send className="text-white/60" size={20} />
-                                        <Camera className="text-white/60" size={20} />
-                                        <Globe className="text-white/60" size={20} />
-                                    </div>
                                     {user ? (
                                         <button
                                             onClick={handleLogout}
